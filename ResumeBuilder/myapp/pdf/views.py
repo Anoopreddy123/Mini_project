@@ -1,7 +1,11 @@
 from django.shortcuts import render
 from .models import Profile
+from django.http import HttpResponse
+from django.template import loader, response
 
-# Create your views here.
+import pdfkit  
+import io
+
 def accept(request):
     if request.method == "POST":
         name = request.POST.get("Name","")
@@ -24,4 +28,10 @@ def accept(request):
 
 def resume(request,id):
     user_profile=Profile.objects.get(pk=id)
-    return render(request,"resume.html",{'user_profile':user_profile})
+    skill = Profile.objects.values_list('skill')
+    return render(request,"resume.html",{'user_profile':user_profile,'skill':skill[id-1]})
+
+
+def list(request):
+    profile = Profile.objects.all()
+    return render(request,"list.html",{'profile':profile})

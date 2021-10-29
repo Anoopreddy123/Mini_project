@@ -1,0 +1,5 @@
+from django.template.loader import get_template 
+from django.template import Context
+from django.views.generic.base import View
+from wkhtmltopdf.views import PDFTemplateResponse
+# Create your views here.

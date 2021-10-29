@@ -6,12 +6,19 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Responsive CV </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+ <script src="{% static 'resume.js' %}"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.js"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'D:\Mini_project\ResumeBuilder\myapp\static\resume.css' %}"/>
 </head>
 <body>
+    <div id="button">
+        <button type="button"  class="btn btn-light">Download</button>
+    </div>
+   
+    <div id="resume">
     <div class="container">
         <div class="left_Side">
             <div class="profileText">
@@ -85,13 +92,9 @@
             <div class="about">
                 <h2 class="title2">Projects</h2>
                 <div class="box">
-                    <div class="year_company">
-                        <h5>2020 - Present</h5>
-                        <h5>Company Name</h5>
-                    </div>
                     <div class="text">
-                        <h4>Senior UX Developer</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                      
+                        <p>{{user_profile.project}}</p>
                     </div>
                 </div>
     
@@ -100,10 +103,13 @@
             <div class="about skills">
                 <h2 class="title2">Professionals skills</h2>
                 <div class="box">
-                    <h4>HTML</h4>
-                    <h4>CSS</h4>
-                    <h4>JavaScript</h4>
-
+                    
+                    {% for profile in skill %}
+                   
+                    <h4>{{profile}}</h4>
+                    
+                    {% endfor %}
+                    
                 </div>
                 
             </div>
@@ -117,7 +123,7 @@
                 </ul>
             </div>
     
-    
+        </div>
         </div>
     </div>
     </body>
