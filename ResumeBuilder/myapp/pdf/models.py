@@ -4,8 +4,8 @@ from django.db import models
 class Profile(models.Model):
     name = models.CharField(max_length=100,default='') 
     phone = models.CharField(max_length=100,default='')
-    email = models.CharField(max_length=100,default='')
-    school = models.CharField(max_length=100,default='')
+    Email = models.CharField(max_length=100,default='')
+    School = models.CharField(max_length=100,default='')
     school_cgpa = models.CharField(max_length=10,default='')
     degree = models.CharField(max_length=100,default='')
     degree_cgpa = models.CharField(max_length=10,default='')
